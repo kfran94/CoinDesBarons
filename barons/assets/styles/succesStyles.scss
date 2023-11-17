@@ -1,0 +1,14 @@
+.valid-card{
+  background-color: white;
+  width: 60%;
+  text-align: center;
+  margin: 5% auto 0 auto;
+  padding: 1rem;
+  border: solid 3px #b58641;
+}
+
+@media (max-width: 690px) {
+  .valid-card {
+    width: 90%;
+  }
+}

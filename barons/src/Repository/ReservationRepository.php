@@ -21,6 +21,16 @@ class ReservationRepository extends ServiceEntityRepository
         parent::__construct($registry, Reservation::class);
     }
 
+    public function countReservationsForDay(string $day): int
+    {
+        return $this->createQueryBuilder('r')
+            ->select('COUNT(r.id)')
+            ->andWhere('r.day = :day')
+            ->setParameter('day', $day)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
 //    /**
 //     * @return Reservation[] Returns an array of Reservation objects
 //     */

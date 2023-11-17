@@ -1,0 +1,55 @@
+.admin-page{
+  margin: 2rem auto;
+  background-color: white;
+  width: 60%;
+  text-align: center;
+  padding: 1rem;
+  border: solid 3px #b58641;
+
+  table{
+
+    margin: 2rem auto;
+    width: 90%;
+    border-collapse: collapse;
+    border: solid 1px black;
+
+    td:first-child, th:first-child {
+      width: 5%;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: center;
+      border-bottom: 1px solid black;
+      width: 10%;
+    }
+
+    th {
+      background-color: #6A6765;
+    }
+
+    tr.odd-row {
+      background-color: #f9f9f9;
+    }
+
+
+    tr.even-row {
+      background-color: #B1B1B1;
+    }
+
+
+  }
+}
+
+@media (max-width: 690px) {
+  .admin-page {
+    width: 90%;
+  }
+}
+
+@media (max-width: 359px) {
+  .admin-page {
+    padding: 1rem 0;
+  }
+}

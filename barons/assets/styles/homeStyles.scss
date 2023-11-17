@@ -1,0 +1,38 @@
+.home-card{
+  background-color: white;
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem;
+  border: solid 3px #b58641;
+  border-radius: 1rem;
+
+  h2{
+    margin-top: 1rem;
+  }
+
+  hr{
+    opacity: 1;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  label{
+    margin-top: 1rem;
+  }
+
+  .btn{
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .home-card {
+    width: 80%;
+  }
+}
+@media (max-width: 690px) {
+  .home-card {
+    width: 90%;
+  }
+}

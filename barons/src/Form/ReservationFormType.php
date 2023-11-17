@@ -15,9 +15,11 @@ class ReservationFormType extends AbstractType
         $builder
             ->add('day', ChoiceType::class, [
                 'choices' => [
+                    'Sélectionner le jour du tournoi' => null,
                     'Mercredi' => 'mercredi',
                     'Samedi' => 'samedi',
                 ],
+                'label' => 'Jour', // Modifiez le label ici
             ])
             ->add('nom')
             ->add('prenom')
