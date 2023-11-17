@@ -6,6 +6,29 @@
   padding: 1rem;
   border: solid 3px #b58641;
 
+  input{
+    margin-top: 1rem;
+    text-align: center;
+  }
+  label{
+    display: none;
+  }
+
+  h2{
+    margin: 1rem auto;
+  }
+
+  btn-res{
+    margin-bottom: 0;
+  }
+
+  .res-max{
+    border: 1px solid #21342c;
+    border-radius: 1rem;
+    width: 60%;
+    margin: 1rem auto;
+  }
+
   table{
 
     margin: 2rem auto;
@@ -52,4 +75,23 @@
   .admin-page {
     padding: 1rem 0;
   }
+}
+
+@media (max-width: 390px) {
+  .cossy {
+    display: none;
+  }
+}
+
+.fa-trash-alt{
+  color: red;
+}
+
+.delete-btn{
+  border: 1px red solid;
+  border-radius: 0.2rem;
+}
+
+.admin-title{
+  margin-bottom: 2rem;
 }

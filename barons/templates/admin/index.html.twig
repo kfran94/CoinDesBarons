@@ -4,6 +4,14 @@
 
     <div class="admin-page">
         <h1>Page Admin</h1>
+        <div class="res-max">
+            <h2>Nombre de réservations maximal</h2>
+            {{ form_start(maxReservationForm) }}
+            {{ form_row(maxReservationForm.maxReservation) }}
+            <button type="submit" class="btn btn-res">Enregistrer</button>
+            {{ form_end(maxReservationForm) }}
+        </div>
+
 
         <h2>Réservations du Mercredi</h2>
         <table>
@@ -11,8 +19,8 @@
             <tr>
                 <th>Nom</th>
                 <th>Prénom</th>
-                <th>Cossy</th>
-                <th>Action</th>
+                <th class="cossy">Cossy</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -21,7 +29,7 @@
                 <tr class="{{ row_class }}">
                     <td>{{ reservation.nom }}</td>
                     <td>{{ reservation.prenom }}</td>
-                    <td>{{ reservation.cossy }}</td>
+                    <td class="cossy">{{ reservation.cossy }}</td>
                     <td>
                         <form action="{{ path('delete_reservation', {'id': reservation.id}) }}" method="post">
                             <input type="hidden" name="day" value="Mercredi">
@@ -34,6 +42,10 @@
             {% endfor %}
             </tbody>
         </table>
+        <form action="{{ path('delete_reservations') }}" method="post">
+            <input type="hidden" name="day" value="Mercredi">
+            <button class="btn" type="submit">Supprimer les réservations du Mercredi</button>
+        </form>
 
         <h2>Réservations du Samedi</h2>
         <table>
@@ -41,8 +53,8 @@
             <tr>
                 <th>Nom</th>
                 <th>Prénom</th>
-                <th>Cossy</th>
-                <th>Action</th>
+                <th class="cossy">Cossy</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -51,7 +63,7 @@
                 <tr class="{{ row_class }}">
                     <td>{{ reservation.nom }}</td>
                     <td>{{ reservation.prenom }}</td>
-                    <td>{{ reservation.cossy }}</td>
+                    <td class="cossy">{{ reservation.cossy }}</td>
                     <td>
                         <form action="{{ path('delete_reservation', {'id': reservation.id}) }}" method="post">
                             <input type="hidden" name="day" value="Samedi">
@@ -64,7 +76,10 @@
             {% endfor %}
             </tbody>
         </table>
+        <form action="{{ path('delete_reservations') }}" method="post">
+            <input type="hidden" name="day" value="Samedi">
+            <button class="btn" type="submit">Supprimer les réservations du Samedi</button>
+        </form>
     </div>
 
 {% endblock %}
-

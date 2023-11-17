@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ReservationRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
@@ -22,8 +23,8 @@ class Reservation
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
-    #[ORM\Column]
-    private ?int $cossy = null;
+    #[ORM\Column(type: Types::BIGINT)]
+    private ?string $cossy = null;
 
     public function getId(): ?int
     {
@@ -66,12 +67,12 @@ class Reservation
         return $this;
     }
 
-    public function getCossy(): ?int
+    public function getCossy(): ?string
     {
         return $this->cossy;
     }
 
-    public function setCossy(int $cossy): static
+    public function setCossy(string $cossy): static
     {
         $this->cossy = $cossy;
 

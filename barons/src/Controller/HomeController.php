@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\MaxReservation;
 use App\Entity\Reservation;
 use App\Form\RegistrationFormType;
 use App\Form\ReservationFormType;
@@ -25,7 +26,7 @@ class HomeController extends AbstractController
 
 
     #[Route('/', name: 'app_home')]
-    public function index(Request $request, ReservationRepository $reservationRepository): Response
+    public function index(Request $request, ReservationRepository $reservationRepository, EntityManagerInterface $entityManager): Response
     {
         $reservation = new Reservation();
         $form = $this->createForm(ReservationFormType::class, $reservation);
@@ -38,8 +39,14 @@ class HomeController extends AbstractController
             // Ajoutez la vérification du nombre de réservations pour le jour sélectionné
             $reservationCount = $reservationRepository->countReservationsForDay($selectedDay);
 
-            // Remplacez 32 par le nombre maximum de réservations autorisées pour le jour sélectionné
-            $maxReservationsAllowed = 32;
+            $maxReservationEntity = $entityManager->getRepository(MaxReservation::class)->findOneBy([]);
+
+            if (!$maxReservationEntity) {
+
+                throw $this->createNotFoundException('La configuration des réservations n\'a pas été trouvée en base de données.');
+            }
+
+            $maxReservationsAllowed = $maxReservationEntity->getMaxReservation();
 
             if ($reservationCount >= $maxReservationsAllowed) {
                 // Gérer le cas où le nombre maximum de réservations est atteint
